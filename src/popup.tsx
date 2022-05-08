@@ -63,22 +63,41 @@ window.addEventListener("load", () => {
           );
           return { userName, name, bio, imageUrl };
         }
-        chrome.scripting.executeScript(
-          {
-            target: { tabId: tabs[0].id },
-            func: getUserData,
-          },
-          (injectionResults) => {
-            for (const frameResult of injectionResults) {
-              const projectName = "youkan-brain";
-              console.log(frameResult);
-              console.log(
-                `[${frameResult.result.imageUrl}]\n\n${frameResult.result.name}\n\n>${frameResult.result.bio}\n\nhttps://twitter.com/${frameResult.result.userName}`
+        const injectionResults = () =>
+          new Promise((resolve) => {
+            chrome.scripting.executeScript(
+              {
+                target: { tabId: tabs[0].id as number },
+                func: getUserData,
+              },
+              (data) => {
+                resolve(data);
+              }
+            );
+          });
+        const results = await injectionResults();
+        for (const frameResult of results as chrome.scripting.InjectionResult[]) {
+          const userSettings = () =>
+            new Promise((resolve) => {
+              chrome.storage.sync.get(
+                {
+                  projectName: "hoge",
+                },
+                (items) => {
+                  resolve(items);
+                }
               );
-              const body = encodeURI(
-                `[${frameResult.result.imageUrl}]\n\n${frameResult.result.name}\n\n>${frameResult.result.bio}\n\nhttps://twitter.com/${frameResult.result.userName}`
-              );
-              const newUrl = `https://scrapbox.io/${projectName}/${frameResult.result.userName}?body=${body}`;
+            });
+          const userSetting = (await userSettings()) as {
+            [key: string]: string;
+          };
+          console.log(userSetting.projectName);
+          const projectName = userSetting.projectName;
+          console.log(frameResult);
+          const body = encodeURI(
+            `[${frameResult.result.imageUrl}]\n\n${frameResult.result.name}\n\n>${frameResult.result.bio}\n\nhttps://twitter.com/${frameResult.result.userName}`
+          );
+          const newUrl = `https://scrapbox.io/${projectName}/${frameResult.result.userName}?body=${body}`;
               console.log(newUrl);
               //chrome.tabs.create({ url: newUrl });
             }
