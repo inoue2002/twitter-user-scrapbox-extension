@@ -98,11 +98,18 @@ window.addEventListener("load", () => {
             `[${frameResult.result.imageUrl}]\n\n${frameResult.result.name}\n\n>${frameResult.result.bio}\n\nhttps://twitter.com/${frameResult.result.userName}`
           );
           const newUrl = `https://scrapbox.io/${projectName}/${frameResult.result.userName}?body=${body}`;
-              console.log(newUrl);
-              //chrome.tabs.create({ url: newUrl });
-            }
+          if (
+            projectName &&
+            frameResult.result.imageUrl &&
+            frameResult.result.name &&
+            frameResult.result.bio &&
+            frameResult.result.userName
+          ) {
+            chrome.tabs.create({ url: newUrl });
+          } else {
+            alert(`err! : ${newUrl}`);
           }
-        );
+        }
       }
     }
   );
