@@ -1,3 +1,18 @@
+## how to use
+- git clone https://github.com/inoue2002/twitter-user-scrapbox-extension.git
+- cd twitter-user-scrapbox-extension
+- npm install 
+- npm run build
+- distフォルダーが生成される
+- chrome://extensions/ にてデベロッパーモードをオンにする
+- 「パッケージ化されていない拡張機能を読み込む」から先ほど生成したdistフォルダーを選択してアップロード
+- オプションから追加したいscrapboxのプロジェクト名をsave
+- twitter-user-scrapbox-extensionをピン留めする📌
+- https://twitter.com/username のようなページで拡張機能のボタンをクリック
+- 自動でscrapboのページへ遷移し、ユーザー情報を入力してくれる
+
+<blockquote class="twitter-tweet"><p lang="ja" dir="ltr">Chrome拡張の開発の練習としてTwitterのユーザーページで拡張ボタンを押すと自動でScrapboxで新しいページを作ってくれる機能作ってみた✌️ <a href="https://t.co/3I7i87bJ4y">pic.twitter.com/3I7i87bJ4y</a></p>&mdash; ようかん / Yosuke Inoue (@inoue2002) <a href="https://twitter.com/inoue2002/status/1522860177845743618?ref_src=twsrc%5Etfw">May 7, 2022</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+
 # Chrome Extension TypeScript Starter
 
 ![build](https://github.com/chibat/chrome-extension-typescript-starter/workflows/build/badge.svg)
