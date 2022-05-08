@@ -1,8 +1,8 @@
 {
   "manifest_version": 3,
 
-  "name": "Chrome Extension TypeScript Starter",
-  "description": "Chrome Extension, TypeScript, Visual Studio Code",
+  "name": "twitter-user-scrapbox-extension",
+  "description": "When used with twitter profile page, it creates a user page on your scrapbox page .",
   "version": "1.0",
 
   "options_ui": {
