@@ -9,7 +9,7 @@
 - オプションから追加したいscrapboxのプロジェクト名をsave
 - twitter-user-scrapbox-extensionをピン留めする📌
 - https://twitter.com/username のようなページで拡張機能のボタンをクリック
-- 自動でscrapboのページへ遷移し、ユーザー情報を入力してくれる
+- 自動でscrapboxのページへ遷移し、ユーザー情報を入力してくれる
 
 <blockquote class="twitter-tweet"><p lang="ja" dir="ltr">Chrome拡張の開発の練習としてTwitterのユーザーページで拡張ボタンを押すと自動でScrapboxで新しいページを作ってくれる機能作ってみた✌️ <a href="https://t.co/3I7i87bJ4y">pic.twitter.com/3I7i87bJ4y</a></p>&mdash; ようかん / Yosuke Inoue (@inoue2002) <a href="https://twitter.com/inoue2002/status/1522860177845743618?ref_src=twsrc%5Etfw">May 7, 2022</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
