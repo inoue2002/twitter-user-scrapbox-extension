@@ -7,6 +7,8 @@
 
 ```
 
+※Node.jsのバージョンが17以上になるとビルドでエラーが出る模様
+
 
 ## how to use
 - git clone https://github.com/inoue2002/twitter-user-scrapbox-extension.git
