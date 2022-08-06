@@ -1,3 +1,13 @@
+## 動作環境
+```
+
+    $ node -v
+
+    v16.15.0
+
+```
+
+
 ## how to use
 - git clone https://github.com/inoue2002/twitter-user-scrapbox-extension.git
 - cd twitter-user-scrapbox-extension
