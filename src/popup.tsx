@@ -26,6 +26,10 @@ const Popup = () => {
       //chrome.windows.create({ url: tabs[0].url });
       if (tabs[0].id) {
         function getUserData() {
+          let userObject = JSON.parse(document.querySelector('head > script')?.innerHTML as string);
+          console.log(userObject);
+          console.log('@',userObject.author.additionalName)
+          console.log('hogehoge')
           let userNameElemnt;
           // ex:inoue2002
           userNameElemnt = document.querySelector(
@@ -129,8 +133,9 @@ const Popup = () => {
             [key: string]: string;
           };
           console.log('----------------------------');
+          console.log(results[0])
           console.log(results[0].result);
-          setBio(results[0].result.bio);
+          setBio(results[0].result ? results[0].result.bio : '');
           setUserName(results[0].result.userName);
           setName(results[0].result.name);
           setImageUrl(results[0].result.imageUrl);
@@ -163,11 +168,11 @@ const Popup = () => {
 
   const onInputUserName = (e: React.ChangeEvent<HTMLInputElement>) => {
     setUserName(e.target.value);
-  }
+  };
 
   const onInputImageUrl = (e: React.ChangeEvent<HTMLInputElement>) => {
     setImageUrl(e.target.value);
-  }
+  };
 
   return (
     <>
@@ -184,7 +189,7 @@ const Popup = () => {
 
       <div>
         <label>imageUrl : </label>
-        <input type="text" value={imageUrl} onInput={onInputImageUrl}/>
+        <input type="text" value={imageUrl} onInput={onInputImageUrl} />
       </div>
 
       <div>
